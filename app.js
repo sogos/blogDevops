@@ -9,6 +9,20 @@ var express = require('express'),
   http = require('http'),
   path = require('path');
 
+
+var settings = {
+    dbsession: 'sessions',
+    host: '127.0.0.1',
+    port: 27017,
+    secret: 'RErkelzmkemlzkeemzlkz'
+};
+
+var MongoStore = require('connect-mongo')(express);
+var SessionStore = new MongoStore({
+    db: settings.dbsession,
+    host: settings.host,
+    port: settings.port
+});
 var app = module.exports = express();
 
 
@@ -24,6 +38,12 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.cookieParser());
+app.use(express.session({
+    secret: 'fdsFjsfSKJfdsfsDKSdf',
+    store: SessionStore,
+    key: 'DevOps'
+}));
 app.use(app.router);
 
 // development only
@@ -33,7 +53,7 @@ if (app.get('env') === 'development') {
 
 // production only
 if (app.get('env') === 'production') {
-  // TODO
+
 }
 
 

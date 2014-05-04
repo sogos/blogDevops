@@ -1,0 +1,20 @@
+{
+    "name": "blogDevops",
+    "description": "",
+    "version": "0.0.0",
+    "homepage": "http://devops.in.net",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "angular": "1.2.x",
+        "angular-resource": "1.2.x",
+        "angular-route": "1.2.x",
+        "angular-loader": "1.2.x",
+        "angular-mocks": "~1.2.15",
+        "angular-i18n": "1.2.x",
+        "requirejs": null,
+        "requirejs-domready": null,
+        "bootstrap": null
+    },
+    "directory": "public/vendor"
+}

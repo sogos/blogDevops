@@ -1,8 +1,17 @@
-'use strict';
+
 
 // Declare app level module which depends on filters, and services
 
+
+define(['angular', 'angularRoute', 'controllers/controllers', 'services/services', 'directives/directives', 'filters/filters'],
+    function (angular) {
+        'use strict';
+        return angular.module('myApp', ['ngRoute', 'controllers', 'services', 'filters', 'directives']);
+});
+
+/*
 angular.module('myApp', [
+  'ngRoute',
   'myApp.controllers',
   'myApp.filters',
   'myApp.services',
@@ -24,3 +33,4 @@ config(function ($routeProvider, $locationProvider) {
 
   $locationProvider.html5Mode(true);
 });
+*/
